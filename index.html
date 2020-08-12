@@ -1,0 +1,46 @@
+<html lang="ru"><head>
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">        
+  <title>Calendar</title>
+  <meta name="description" content="Calendar">
+  <meta property="og:type" content="Calendar">
+  <meta property="og:title" ccontent="Calendar">
+  <meta property="og:description" content="Calendar">        
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">    
+    <div class="controls">      
+      <div class="actions">
+        <button id="addBtn">Добавить</button>        
+        <button id="updateBtn">Обновить</button>
+        <div class="add-form-mini-wrap">        
+        </div>             
+      </div>
+      <div class="search">
+        <input id="search" type="text" title="Search event, date" autocomplete="off" placeholder="Событие или участник">
+        <span class="close-search">&times;</span>
+        <div class="search-result-wrap">
+        </div>    
+      </div>
+    </div>
+  </div>
+</header>
+<section class="content">
+  <div class="container">
+    <div class="controls">
+      <div class="controls-date">
+        <button class="prevBtn"></button>
+        <span></span>
+        <button class="nextBtn"></button>
+      </div>
+      <button class="todayBtn">Сегодня</button>
+    </div>
+    <div class="calendar" id="calendarId"></div>    
+  </div>
+</section>
+<script src="app.js"></script>
+
+</body></html>

@@ -1,0 +1,666 @@
+
+*, *:before, *:after {
+  padding: 0;
+  margin: 0;
+  bottom: 0;
+  box-sizing: border-box;
+}
+
+html, body, textarea, p, span, button {
+  /* height: 100%; */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  min-width: 992px;
+  /* max-width: 1180px; */
+  width: 992px;
+  margin-left: auto;
+  margin-right: auto;  
+  /* border: 1px solid red; */
+}
+
+header {
+  width: 100%;
+  background-color: rgb(244, 244, 244);
+  padding-top: 70px;
+  padding-bottom: 20px;
+  box-shadow: 0 0 5px grey;
+}
+
+header .controls .actions button {
+  background-color: rgb(2, 113, 199);
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+  padding: 7px 10px;
+  outline: none;
+  border: none;
+  transition: color .25s ease, background-color .25s ease, box-shadow .25s ease;
+  border-radius: 3px;
+}
+
+header .controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+header .controls .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+  position: relative;
+}
+
+header .controls .actions button:hover {
+  box-shadow: 2px 2px 10px rgb(1, 70, 105) inset;
+  background-color: rgb(1, 93, 164);
+  color: rgb(194, 208, 226);
+}
+header .controls .actions button:active {
+  box-shadow: 2px 2px 10px rgb(1, 70, 105) inset;
+  background-color: rgb(1, 93, 164);
+  color: rgb(194, 208, 226);
+}
+
+header .controls .actions .add-form-mini-wrap {
+  position: absolute;
+  top: 45px;
+  display: flex;
+  width: 430px;
+  height: 100px;
+  z-index: 3;
+  background-color: #fff;
+  /* border: 1px solid red; */
+  flex-direction: column;
+  padding: 20px 30px;
+  box-shadow: 0 0 5px #bbbbbb;
+  display: none;
+}
+
+header .controls .actions .add-form-mini-wrap .add-form-mini {
+  position: relative;
+}
+
+header .controls .actions .add-form-mini-wrap .add-form-mini .add-form-mini-close {
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  text-align: center;  
+}
+
+header .controls .actions .add-form-mini-wrap .add-form-mini .all-event {
+  width: 350px;
+  line-height: 1;
+  padding: 5px 10px;
+  border: 1px solid rgb(217, 217, 217);
+  box-shadow: 0 1px 2px rgb(200, 200, 200) inset;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 10px;  
+  border: 1px solid rgb(200, 200, 200)
+}
+header .controls .actions .add-form-mini-wrap .add-form-mini .btn-form-mini-add {
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  width: fit-content;
+  box-shadow: 0 0px 3px rgb(158, 158, 158) inset;
+  position: relative;
+  transition: all .25s ease;
+  color: #000;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+header .controls .actions .add-form-mini-wrap .add-form-mini .btn-form-mini-add:hover {
+  box-shadow: 2px 2px 10px rgb(1, 70, 105) inset;
+  background-color: rgb(1, 93, 164);
+  color: rgb(194, 208, 226);
+}
+
+header .controls .actions .add-form-mini-wrap .add-form-mini .btn-form-mini-add:active {
+  box-shadow: 2px 2px 10px rgb(1, 70, 105) inset;
+  background-color: rgb(1, 93, 164);
+  color: rgb(194, 208, 226);
+}
+
+header .controls .search {
+  position: relative;
+}
+
+header .controls .search input {
+  width: 250px;
+  line-height: 1;
+  padding-left: 10px;
+  padding-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: rgb(217, 217, 217);
+  box-shadow: 0 1px 2px rgb(200, 200, 200) inset;
+  outline: none;
+  font-size: 14px;
+  
+}
+
+header .controls .search span {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 10px;
+  color: rgb(200, 200, 200);
+  line-height: 1;
+  cursor: pointer;
+}
+
+header .controls .search span:hover {
+  color: grey;
+}
+
+header .controls .search input::placeholder {
+  color: rgb(217, 217, 217);  
+}
+
+header .controls .search .search-result {
+  position: absolute;
+  top: 45px;
+  height: 400px;
+  /* max-height: 400px; */
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 5px #bbbbbb;
+  padding: 5px;
+  overflow: auto;
+  z-index: 2;
+  /* display: none; */
+}
+
+/* header .controls .search .search-result::before {
+  content: "";
+  width: 15px;
+  height: 10px;
+  display: block;
+  background-color: red;
+  top: -10px;
+  
+} */
+
+header .controls .search .search-result .item {
+  height: 40px;
+  padding: 3px 5px;
+  /* border-bottom: 1px solid rgb(217, 217, 217); */
+  transition: background-color .25s ease;
+  position: relative;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+header .controls .search .search-result .item::after {
+  content: "";
+  display: block;
+  background-color: rgb(217, 217, 217);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+header .controls .search .search-result .item:hover {
+  background-color: rgb(39, 161, 255);  
+}
+
+header .controls .search .search-result .item:hover .event-name {
+  color: #fff;
+}
+
+header .controls .search .search-result .item:hover .event-date {
+  color: #fff;
+}
+
+header .controls .search .search-result .item:last-child {  
+  border-bottom: none;
+}
+
+header .controls .search .search-result .item .event-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  height: 16px;
+  word-break: break-all;
+  overflow: hidden;
+  position: relative;
+}
+
+header .controls .search .search-result .item .event-name:after {
+  position: absolute;
+  content: '';
+  display: block;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  /* transition: all .15s ease;   */
+  /* filter: blur(3px); */
+  /* opacity: 1; */
+  /* background-color: #fff; */
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 75%);
+}
+
+header .controls .search .search-result .item:hover .event-name:after {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(39,161,255,1) 78%);
+}
+
+
+
+header .controls .search .search-result .item .event-date {
+  color: rgb(125, 125, 125);
+  font-size: 12px;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.content .calendar {
+  padding: 20px 0px;
+  margin-bottom: 100px; 
+}
+
+.content .calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  /* border: 1px solid rgb(167, 18, 18); */
+}
+
+.content .calendar table tr {
+  /* height: 100px; */
+  
+}
+
+.content .calendar table td {
+  width: calc(100% / 7);
+  height: 130px;
+  /* height: 100px; */
+  border: 1px solid rgb(238, 238, 238);
+  padding: 5px;
+  vertical-align: top;
+  transition: background-color .25s ease;
+  position: relative;
+}
+
+.content .calendar table td:hover {
+  background-color: rgb(229, 241,	249); /*rgb(242, 242, 242); */
+}
+
+.content .calendar table .active {
+  border: transparent;
+  outline: 2px solid rgb(136, 199, 245);
+  background-color: rgb(229, 241, 249);
+}
+
+.content .calendar table .event-active {
+  background-color: rgb(194, 228,	254);
+}
+
+
+/* .content .calendar table td .day_number {
+
+} */
+
+.content .controls {
+  margin-top: 20px;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content .controls .controls-date {
+  width: 160px;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.content .controls .controls-date button {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0px 3px rgb(158, 158, 158) inset;
+  position: relative;
+  transition: all .25s ease;
+}
+
+.content .controls .controls-date button:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 5px;
+  height: 5px;
+}
+
+.content .controls .controls-date .nextBtn:before {
+  border-style: solid;
+  border-width: 4px 0 4px 5px;
+  border-color: transparent transparent transparent rgb(125, 125, 125);
+}
+
+.content .controls .controls-date .prevBtn:before {
+  border-style: solid;
+  border-width: 4px 5px 4px 0;
+  border-color: transparent rgb(125, 125, 125) transparent transparent;
+}
+
+.content .controls .controls-date button:hover {
+  background-color: rgb(2, 113, 199);
+}
+
+.content .controls .controls-date .nextBtn:hover::before {
+  border-color: transparent transparent transparent rgb(255, 255, 255);
+}
+
+.content .controls .controls-date .prevBtn:hover::before {
+  border-color: transparent rgb(255, 255, 255) transparent transparent;
+}
+
+.content .controls .todayBtn {
+  height: 20px;
+  padding: 0 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0px 3px rgb(158, 158, 158) inset;
+  position: relative;
+  color: rgb(125, 125, 125);
+  transition: all .25s ease;
+  background-color: #fff;
+}
+
+.content .controls .todayBtn:hover {
+  color: #ffffff;
+  background-color: rgb(2, 113, 199);
+}
+
+.content .calendar table td .day_number {
+  font-size: 12px;
+  margin-bottom: 0;
+  line-height: 1.2;
+  color: rgb(192, 192, 192);
+}
+
+.content .calendar table td .day_descr {
+  margin-top: 10px;
+  word-break: break-word;
+  overflow: auto;
+  line-height: 1.2;
+  height: 85px;  
+  padding-right: 5px;  
+  margin-bottom: 0;
+  color: rgb(114, 114, 114);
+}
+
+.content .calendar table td .day_descr .event-name {
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  word-break: break-word;
+  display: inherit;
+}
+
+.content .calendar table td .day_descr .event-participants {
+  font-weight: 400;
+  font-size: 11px;
+  word-break: break-word;
+  display: inherit;
+}
+
+
+
+
+
+
+
+
+.edit-form-wrap {
+  box-shadow: 0 0 5px #bbbbbb;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 300px;
+  height: 370px;
+  padding: 25px 30px;
+  position: absolute;
+  top: -70px; /* -50px */
+  /* left: 90px; */
+  /* right: 190px; */
+  /* display: none; */
+  background-color: #fff;  
+  z-index: 2;
+  overflow: auto;
+}
+.edit-form-wrap .edit-form {
+  position: relative;
+}
+
+.edit-form-wrap .edit-form #btn-edit-form-close {  
+  position: absolute;
+  top: -15px;    
+  right: -20px;
+  width: 15px;
+  height: 15px; 
+  cursor: pointer;
+  transition: all .25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(200, 200, 200);
+}
+
+.edit-form-wrap .edit-form #btn-edit-form-close:hover {
+  color: grey;
+}
+
+.edit-form-wrap .edit-form input {      
+  line-height: 1;
+  padding: 5px 10px; 
+  border: 1px solid rgb(217, 217, 217);
+  box-shadow: 0 1px 2px rgb(200, 200, 200) inset;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid rgb(200, 200, 200);
+}
+
+.edit-form-wrap .edit-form textarea {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 130px;
+  min-height: 130px;
+  margin-top: 30px;
+  padding: 5px 10px; 
+  font-size: 14px;
+  line-height: 1.2;
+  border: 1px solid rgb(217, 217, 217);
+  box-shadow: 0 1px 2px rgb(200, 200, 200) inset;
+  outline: none;
+}
+
+.edit-form-wrap .edit-form input::placeholder {
+  color: rgb(217, 217, 217);  
+}
+.edit-form-wrap .edit-form textarea::placeholder {
+  color: rgb(217, 217, 217);  
+}
+
+.edit-form-wrap .edit-form .actions {
+  margin-top: 25px;
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-form-wrap .edit-form .actions button {
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0px 3px rgb(158, 158, 158) inset;
+  position: relative;
+  transition: all .25s ease;
+  color: #000;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.edit-form-wrap .edit-form .actions button:active {
+  box-shadow: 2px 2px 10px rgb(1, 70, 105) inset;
+  background-color: rgb(1, 93, 164);
+  color: rgb(194, 208, 226);
+}
+
+.edit-form-wrap .edit-form .actions button:hover {
+  box-shadow: 2px 2px 10px rgb(1, 70, 105) inset;
+  background-color: rgb(1, 93, 164);
+  color: rgb(194, 208, 226);
+}
+
+
+
+
+
+.info-form-wrap {
+  box-shadow: 0 0 5px #bbbbbb;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 300px;
+  height: 350px;
+  padding: 25px 30px;
+  position: absolute;
+  top: -70px;
+  left: 90px;
+  background-color: #fff;  
+  z-index: 2;
+  overflow: auto;
+}
+.info-form-wrap .info-form {
+  position: relative;
+}
+.info-form-wrap .info-form #btn-info-form-close {  
+  position: absolute;
+  top: -15px;    
+  right: -20px;
+  width: 15px;
+  height: 15px; 
+  cursor: pointer;
+  transition: all .25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(200, 200, 200);
+}
+
+.info-form-wrap .info-form #btn-info-form-close:hover {
+  color: grey;
+}
+
+.info-form-wrap .info-form .name-event {      
+  line-height: 1.2;
+  width: 100%;
+  word-break: break-all;
+  overflow: auto;
+  max-height: 50px;
+  padding-right: 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.info-form-wrap .info-form .date-time {
+  font-size: 13px;
+  line-height: 1;
+  margin-top: 10px;
+  word-break: break-all;
+}
+
+.info-form-wrap .info-form span {
+  color: rgb(184, 184, 184);
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 15px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.info-form-wrap .info-form .participants {
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.info-form-wrap .info-form textarea {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 130px;
+  min-height: 130px;
+  margin-top: 30px;
+  padding: 5px 10px; 
+  font-size: 14px;
+  line-height: 1.2;
+  border: 1px solid rgb(217, 217, 217);
+  box-shadow: 0 1px 2px rgb(200, 200, 200) inset;
+  outline: none;
+}
+
+.info-form-wrap .info-form .actions {
+  margin-top: 25px;
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-form-wrap .info-form .actions button {
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0px 3px rgb(158, 158, 158) inset;
+  position: relative;
+  transition: all .25s ease;
+  color: #000;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.info-form-wrap .info-form .actions button:active {
+  box-shadow: 2px 2px 10px rgb(1, 70, 105) inset;
+  background-color: rgb(1, 93, 164);
+  color: rgb(194, 208, 226);
+}
+
+.info-form-wrap .info-form .actions button:hover {
+  box-shadow: 2px 2px 10px rgb(1, 70, 105) inset;
+  background-color: rgb(1, 93, 164);
+  color: rgb(194, 208, 226);
+}
